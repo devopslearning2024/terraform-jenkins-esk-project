@@ -19,16 +19,16 @@ module "vpc" {
   #   enable_vpn_gateway = true
 
   tags = {
-    "kubernetes.io/cluster/my-esk-cluster" = "shared"
+    "kubernetes.io/cluster/eks-cluster" = "shared"
   }
 
   public_subnet_tags = {
-    "kubernetes.io/cluster/my-esk-cluster" = "shared"
+    "kubernetes.io/cluster/eks-cluster" = "shared"
     "kubernetes.io/role/elb"               = 1
   }
 
   private_subnet_tags = {
-    "kubernetes.io/cluster/my-esk-cluster" = "shared"
+    "kubernetes.io/cluster/eks-cluster" = "shared"
     "kubernetes.io/role/internal-elb"      = 1
   }
 }
@@ -37,7 +37,7 @@ module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "~> 20.0"
 
-  cluster_name    = "my-esk-cluster"
+  cluster_name    = "eks-cluster"
   cluster_version = "1.27"
 
   cluster_endpoint_public_access = true
