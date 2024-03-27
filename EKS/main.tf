@@ -58,3 +58,10 @@ module "eks" {
 
 }
 
+module "kms" {
+  source      = "terraform-aws-modules/kms/aws"
+  description = "Not using the kms key"
+  is_enabled  = false
+}
+
+
